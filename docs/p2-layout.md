@@ -1,14 +1,12 @@
 # p2-layout.md
 
-- https://tailwindcss.com/
+https://v3.tailwindcss.com/docs/container
 
 ## aspect-ratio
 
->[!INFO] 
->
-> - https://tailwindcss.com/docs/aspect-ratio
->
 > 用于控制元素长宽比
+>
+> - https://v3.tailwindcss.com/docs/aspect-ratio
 
 ```tsx
 <div className={"flex flex-col items-center justify-center gap-4 mt-10"}>
