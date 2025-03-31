@@ -5,9 +5,8 @@ https://v3.tailwindcss.com/docs/container
 # aspect-ratio
 
 > [!NOTE]
-> `aspect-*` 用于控制元素长宽比
->
-> - https://v3.tailwindcss.com/docs/aspect-ratio
+> 
+>[aspect-*](https://v3.tailwindcss.com/docs/aspect-ratio)用于控制元素长宽比
 
 示例
 
@@ -19,14 +18,13 @@ https://v3.tailwindcss.com/docs/container
 </div>
 ```
 
-![image-20250331234315817](../assets/image-20250331234315817.png)
+<img src="../assets/image-20250331234315817.png" alt="image-20250331234315817" style="zoom:67%;" />
 
 # container
 
 > [!NOTE]
-> `container` 用于将元素宽度固定为当前断点的组件：`container` 类将元素的 `max-width` 设置为与当前断点的 `min-width` 匹配。如果您希望针对一组固定的屏幕尺寸进行设计，而不是试图适应完全流动的视口，那么这将非常有用。
->
-> - https://v3.tailwindcss.com/docs/container
+> 
+>[container](https://v3.tailwindcss.com/docs/container) 用于将元素宽度固定为当前断点的组件将元素的 `max-width` 设置为与当前断点的 `min-width` 匹配。如果您希望针对一组固定的屏幕尺寸进行设计，而不是试图适应完全流动的视口，那么这将非常有用。
 
 | Class          | Breakpoint         | Properties   |
 | -------------- | ------------------ | ------------ |
@@ -88,3 +86,71 @@ export default function Home() {
 ![image-20250401004823053](../assets/image-20250401004823053.png)
 
 ![image-20250401004840696](../assets/image-20250401004840696.png)
+
+# columns
+
+> [!NOTE] 
+>
+> [columns](https://v3.tailwindcss.com/docs/columns)是用于控制元素内列数的实用工具
+>
+> - 使用 `columns-2` 和 `columns-3` 等来设置应为元素内的内容创建的列数。列宽将自动调整以适应该数量。
+> - 使用 `columns-xs` 和 `columns-sm` 等可为元素内的内容设置理想的列宽，并自动调整列数（计数）以适应该值。
+> - 要指定列之间的宽度，可以使用 `gap-x`
+> - tailwind 允许您使用变体修饰符在不同状态下有条件地应用实用工具类。例如，使用 `hover:columns-3` 只在悬停时应用 `columns-3` 工具。
+
+| Class                 | Properties                                              |
+| --------------------- | ------------------------------------------------------- |
+| columns-1             | columns: 1;                                             |
+| columns-2             | columns: 2;                                             |
+| columns-3             | columns: 3;                                             |
+| ...                   | ...                                                     |
+| columns-auto          | columns: auto;                                          |
+| columns-3xs           | columns: 16rem; /* 256px */                             |
+| columns-2xs           | columns: 18rem; /* 288px */                             |
+| columns-xs            | columns: 20rem; /* 320px */                             |
+| ...                   | ...                                                     |
+| columns-5xlcolumns-sm | columns: 64rem; /* 1024px */columns: 24rem; /* 384px */ |
+| columns-6xlcolumns-md | columns: 72rem; /* 1152px */columns: 28rem; /* 448px */ |
+| columns-7xlcolumns-lg | columns: 80rem; /* 1280px */columns: 32rem; /* 512px */ |
+
+示例
+
+````tsx
+export default function Home() {
+
+    const  imgList = [
+        "/mcdd01/ok.gif",
+        "/mcdd01/呆滞.gif",
+        "/mcdd01/哈哈.gif",
+        "/mcdd01/哼.gif",
+        "/mcdd01/嗯嗯.gif",
+        "/mcdd01/大哭.gif",
+        "/mcdd01/害羞.gif",
+        "/mcdd01/打.gif",
+        "/mcdd01/无语.gif",
+        "/mcdd01/汗.gif",
+        "/mcdd01/生气.gif",
+        "/mcdd01/送花.gif",
+        "/mcdd01/酷.gif",
+    ]
+
+    return (
+        <>
+            <div className={"w-10/12 mx-auto columns-xs gap-x-5"}>
+                {
+                    imgList.map((img, index) => {
+                        return (
+                            <div key={index} className={"border-[1px] border-pink-500"}>
+                                <img src={img} alt={''}/>
+                            </div>
+                        )
+                    })
+                }
+            </div>
+        </>
+    );
+}
+
+````
+
+![image-20250401012107392](../assets/image-20250401012107392.png)
