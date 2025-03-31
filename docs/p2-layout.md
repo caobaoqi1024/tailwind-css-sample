@@ -4,7 +4,8 @@ https://v3.tailwindcss.com/docs/container
 
 # aspect-ratio
 
-> 用于控制元素长宽比
+> [!NOTE]
+> `aspect-*` 用于控制元素长宽比
 >
 > - https://v3.tailwindcss.com/docs/aspect-ratio
 
@@ -22,7 +23,8 @@ https://v3.tailwindcss.com/docs/container
 
 # container
 
-> 用于将元素宽度固定为当前断点的组件：`container` 类将元素的 `max-width` 设置为与当前断点的 `min-width` 匹配。如果您希望针对一组固定的屏幕尺寸进行设计，而不是试图适应完全流动的视口，那么这将非常有用。
+> [!NOTE]
+> `container` 用于将元素宽度固定为当前断点的组件：`container` 类将元素的 `max-width` 设置为与当前断点的 `min-width` 匹配。如果您希望针对一组固定的屏幕尺寸进行设计，而不是试图适应完全流动的视口，那么这将非常有用。
 >
 > - https://v3.tailwindcss.com/docs/container
 
@@ -35,7 +37,7 @@ https://v3.tailwindcss.com/docs/container
 | xl *(1280px)*  | max-width: 1280px; |              |
 | 2xl *(1536px)* | max-width: 1536px; |              |
 
-> [!WARN]
+> [!WARNING]
 >
 > 请注意，与您可能在其他框架中使用过的容器不同， **tailwind css 的容器不会自动居中，也没有任何内置水平填充。**
 >
