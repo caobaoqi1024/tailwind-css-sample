@@ -6,7 +6,7 @@ https://v3.tailwindcss.com/docs/container
 
 > [!NOTE]
 > 
->[aspect-*](https://v3.tailwindcss.com/docs/aspect-ratio)用于控制元素长宽比
+>[aspect-*](https://v3.tailwindcss.com/docs/aspect-ratio) 用于控制元素长宽比
 
 示例
 
@@ -37,23 +37,21 @@ https://v3.tailwindcss.com/docs/container
 
 > [!WARNING]
 >
-> 请注意，与您可能在其他框架中使用过的容器不同， **tailwind css 的容器不会自动居中，也没有任何内置水平填充。**
->
-> 要使容器居中，请使用 `mx-auto` :
+> 请注意，与您可能在其他框架中使用过的容器不同， **tailwind css 的容器不会自动居中，也没有任何内置水平填充。** 要使容器居中，请使用 `mx-auto` :
 >
 > ```tsx
-> <div class="container mx-auto">
->   <!-- ... -->
+><div class="container mx-auto">
+> <!-- ... -->
 > </div>
-> ```
->
+>   ```
+> 
 > 要添加水平填充，请使用 `px-*` :
 >
 > ```tsx
-> <div class="container mx-auto px-4">
->   <!-- ... -->
+><div class="container mx-auto px-4">
+> <!-- ... -->
 > </div>
-> ```
+>   ```
 
 要使容器默认居中，请在配置文件 `tailwind.config.js` 的 `theme.container` 部分中将 `center` 选项设置为 `true` 
 
@@ -91,7 +89,7 @@ export default function Home() {
 
 > [!NOTE] 
 >
-> [columns](https://v3.tailwindcss.com/docs/columns)是用于控制元素内列数的实用工具
+> [columns](https://v3.tailwindcss.com/docs/columns) 是用于控制元素内列数的实用工具
 >
 > - 使用 `columns-2` 和 `columns-3` 等来设置应为元素内的内容创建的列数。列宽将自动调整以适应该数量。
 > - 使用 `columns-xs` 和 `columns-sm` 等可为元素内的内容设置理想的列宽，并自动调整列数（计数）以适应该值。
@@ -116,27 +114,12 @@ export default function Home() {
 示例
 
 ````tsx
+import {imgList} from "@/components/mcdd"
+
 export default function Home() {
-
-    const  imgList = [
-        "/mcdd01/ok.gif",
-        "/mcdd01/呆滞.gif",
-        "/mcdd01/哈哈.gif",
-        "/mcdd01/哼.gif",
-        "/mcdd01/嗯嗯.gif",
-        "/mcdd01/大哭.gif",
-        "/mcdd01/害羞.gif",
-        "/mcdd01/打.gif",
-        "/mcdd01/无语.gif",
-        "/mcdd01/汗.gif",
-        "/mcdd01/生气.gif",
-        "/mcdd01/送花.gif",
-        "/mcdd01/酷.gif",
-    ]
-
     return (
         <>
-            <div className={"w-10/12 mx-auto columns-xs gap-x-5"}>
+            <div className={"w-10/12 mx-auto columns-2 hover:columns-xs gap-x-5"}>
                 {
                     imgList.map((img, index) => {
                         return (
@@ -154,3 +137,173 @@ export default function Home() {
 ````
 
 ![image-20250401012107392](../assets/image-20250401012107392.png)
+
+# break-after | before | inside
+
+> [!NOTE]
+>
+>
+> -  [break-after-*](https://v3.tailwindcss.com/docs/break-after) 工具可控制元素后的分栏或分页符的行为。例如，使用 `break-after-column` 可在元素后强制分栏。 
+> - 使用 `break-before-column` 和 `break-before-page` 等实用工具来控制元素前的分栏或分页符的行为
+
+示例
+
+```tsx
+export default function Home() {
+    return (
+        <>
+            <div className={"p-20 bg-pink-700 print:break-after-page"}>1</div>
+            <div className={"p-20 bg-pink-700"}>2</div>
+            <ul className={"columns-2"}>
+                <li>1</li>
+                <li>2</li>
+                <li className={"break-after-column"}>3</li>
+                <li>4</li>
+            </ul>
+        </>
+    );
+}
+```
+
+![CleanShot 2025-04-01 at 12.10.29@2x](../assets/CleanShot 2025-04-01 at 12.10.29@2x.png)
+
+![CleanShot 2025-04-01 at 12.11.00@2x](../assets/CleanShot 2025-04-01 at 12.11.00@2x.png)
+
+示例
+
+```tsx
+export default function Home() {
+    return (
+        <>
+            <div className={"p-20 bg-pink-700"}>1</div>
+            <div className={"p-20 bg-pink-700 print:break-before-page"}>2</div>
+            <ul className={"columns-2"}>
+                <li>1</li>
+                <li className={"break-before-column"}>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </>
+    );
+}
+
+```
+
+![CleanShot 2025-04-01 at 12.14.28@2x](../assets/CleanShot 2025-04-01 at 12.14.28@2x.png)
+
+![CleanShot 2025-04-01 at 12.14.36@2x](../assets/CleanShot 2025-04-01 at 12.14.36@2x.png)
+
+示例
+
+```tsx
+export default function Home() {
+    return (
+        <>
+            <div className="columns-2">
+                <p>Well, let me tell you something, ...</p>
+                <p className="break-inside-avoid-column">Sure, go ahead, laugh...</p>
+                <p>Maybe we can live without...</p>
+                <p>Look. If you think this is...</p>
+            </div>
+        </>
+    );
+}
+
+```
+
+![CleanShot 2025-04-01 at 12.17.48@2x](../assets/CleanShot 2025-04-01 at 12.17.48@2x.png)
+
+# box-decoration-break
+
+https://tailwindcss.com/docs/box-decoration-break
+
+> 使用 `box-decoration-slice` 和 `box-decoration-clone` 实用程序，可以控制背景、边框、边框图像、框阴影、剪贴路径、边距和衬垫等属性的呈现方式是将元素视为一个连续的片段，还是不同的块
+
+示例
+
+```tsx
+export default function Home() {
+    return (
+        <>
+            <span className={"px-5 text-6xl text-white bg-gradient-to-r from-red-300 to-pink-700 box-decoration-clone"}>
+                千里之行 <br /> 始于足下
+            </span>
+            <br />
+            <br />
+            <br />
+            <br />
+            <span className={"px-5 text-6xl text-white bg-gradient-to-r from-red-300 to-pink-700 box-decoration-slice"}>
+                千里之行 <br /> 始于足下
+            </span>
+        </>
+    );
+}
+
+```
+
+![CleanShot 2025-04-01 at 12.28.36@2x](../assets/CleanShot 2025-04-01 at 12.28.36@2x.png)
+
+# box-sizing
+
+https://tailwindcss.com/docs/box-sizing
+
+> - 使用 `box-border` 将元素的 `box-sizing` 设置为 `border-box`，告诉浏览器在给元素设置高度或宽度时包含其边框和填充。这意味着一个 100px × 100px 的元素，如果边框为 2px，四边的填充为 4px，则会显示为 100px × 100px，内部内容区域为 88px × 88px：
+
+示例
+
+```tsx
+export default function Home() {
+    return (
+        <>
+            <div className={"box-border border-[2px] p-[4px] size-[100px] border-black bg-pink-700"}>
+
+            </div>
+        </>
+    );
+}
+
+```
+
+![CleanShot 2025-04-01 at 12.42.30@2x](../assets/CleanShot 2025-04-01 at 12.42.30@2x.png)
+
+
+
+> 使用 `box-content` 将元素的 `box-sizing` 设置为 `content-box`，告诉浏览器在元素指定宽度或高度的基础上添加边框和填充。这意味着，一个 100px × 100px 的元素，边框为 2px，四边填充为 4px，实际呈现为 112px × 112px，内部内容区域为 100px × 100px：
+
+示例
+
+```tsx
+export default function Home() {
+    return (
+        <>
+            <div className={"box-content size-[100px] border-[2px] p-[4px] border-black bg-pink-700"}>
+
+            </div>
+        </>
+    );
+}
+
+```
+
+![CleanShot 2025-04-01 at 12.40.48@2x](../assets/CleanShot 2025-04-01 at 12.40.48@2x.png)
+
+> [!TIP]
+>
+> tailwind 初始化将盒子设置为 box-border
+
+示例
+
+```tsx
+export default function Home() {
+    return (
+        <>
+            <div className={"border-[2px] p-[4px] size-[100px] border-black bg-pink-700"}>
+
+            </div>
+        </>
+    );
+}
+
+```
+
+![CleanShot 2025-04-01 at 12.44.23@2x](../assets/CleanShot 2025-04-01 at 12.44.23@2x.png)
